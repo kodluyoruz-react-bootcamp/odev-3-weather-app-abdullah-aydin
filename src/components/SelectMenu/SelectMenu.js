@@ -1,20 +1,27 @@
+//context
+import { useContext } from "react";
+import WeatherDataContext from "../../context/WeatherDataContext";
+//cities
+import cities from "../../constant/CitiesOfTurkey.json";
+// ant design
 import { Select } from "antd";
 
 const { Option } = Select;
 
 function SelectMenu() {
-  function handleChange(value) {
-    console.log(`selected ${value}`);
-  }
+  const { value, setValue } = useContext(WeatherDataContext);
 
   return (
-    <Select defaultValue="lucy" style={{ width: 120 }} onChange={handleChange}>
-      <Option value="jack">Jack</Option>
-      <Option value="lucy">Lucy</Option>
-      <Option value="disabled" disabled>
-        Disabled
-      </Option>
-      <Option value="Yiminghe">yiminghe</Option>
+    <Select
+      defaultValue={value}
+      style={{ width: 120 }}
+      onChange={(value) => setValue(value)}
+    >
+      {cities.map((city) => (
+        <Option value={city.name} key={city.id}>
+          {city.name}
+        </Option>
+      ))}
     </Select>
   );
 }

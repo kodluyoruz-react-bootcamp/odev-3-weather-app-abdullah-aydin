@@ -1,21 +1,36 @@
+//context
+import { useContext } from "react";
+import WeatherDataContext from "../../context/WeatherDataContext";
+// ant design
 import { Row, Col } from "antd";
+// styles
+import styles from "./styles.module.css";
 
 function MainMenu() {
+  const { value } = useContext(WeatherDataContext);
+
   return (
-    <Row gutter={{ xs: 8, sm: 16, md: 24, lg: 32 }}>
-      <Col className="gutter-row" span={6}>
-        <div>col-6</div>
-      </Col>
-      <Col className="gutter-row" span={6}>
-        <div>col-6</div>
-      </Col>
-      <Col className="gutter-row" span={6}>
-        <div>col-6</div>
-      </Col>
-      <Col className="gutter-row" span={6}>
-        <div>col-6</div>
-      </Col>
-    </Row>
+    <div className={styles.root}>
+      <Row className={styles.main}>
+        <Col>
+          <h2>{value}</h2>
+        </Col>
+        <Col>
+          <div>15 20</div>
+        </Col>
+      </Row>
+      <Row className={styles.main}>
+        <Col>
+          <div>today</div>
+        </Col>
+        <Col>
+          <div>icon</div>
+        </Col>
+        <Col>
+          <div>22 C</div>
+        </Col>
+      </Row>
+    </div>
   );
 }
 

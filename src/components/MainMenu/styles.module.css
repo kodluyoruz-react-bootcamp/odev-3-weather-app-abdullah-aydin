@@ -1,0 +1,10 @@
+.root {
+    background-color: teal;
+    padding: 20px;
+    height: 30vh;
+    border-radius: 20px;
+}
+.main{
+    display: flex;
+    justify-content: space-between;
+}
