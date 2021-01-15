@@ -1,9 +1,13 @@
 .root {
-    background-color: teal;
-    padding: 20px;
-    border-radius: 20px;
+  background-color: teal;
+  padding: 20px;
+  margin-top: 10px;
+  border-radius: 30px;
 }
-.main{
-    display: flex;
-    justify-content: space-between;
+.main {
+  display: flex;
+  justify-content: space-between;
+}
+.col {
+  text-align: center;
 }

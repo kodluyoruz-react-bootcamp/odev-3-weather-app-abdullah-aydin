@@ -13,7 +13,7 @@ function App() {
         <SelectMenu />
         <MainMenu />
         <OtherDaysForecast />
-        <HourlyForecast />
+        {/* <HourlyForecast /> */}
       </div>
     </div>
   );

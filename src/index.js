@@ -7,6 +7,9 @@ import reportWebVitals from "./reportWebVitals";
 import { WeatherProvider } from "./context/WeatherDataContext";
 //ant desgin styles
 import "antd/dist/antd.css";
+//moment
+import "moment/locale/tr"; //for a turkish date format
+
 
 ReactDOM.render(
   <React.StrictMode>

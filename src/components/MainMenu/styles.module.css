@@ -1,10 +1,29 @@
 .root {
-    background-color: teal;
-    padding: 20px;
-    height: 30vh;
-    border-radius: 20px;
+  background-color: teal;
+  padding: 20px;
+  border-radius: 30px;
 }
-.main{
-    display: flex;
-    justify-content: space-between;
+.minMax > h5 {
+  margin: 0;
+  color: white;
+  text-align: end;
+}
+.main {
+  display: flex;
+  justify-content: space-between;
+}
+.whiteColor {
+  color: white;
+  margin-bottom: 0;
+}
+.temp {
+  display: flex;
+  justify-content: flex-end;
+  align-items: flex-end;
+}
+.temp_h1 {
+  margin: 0;
+  font-size: 3rem;
+  color: white;
+  font-weight: bold;
 }
