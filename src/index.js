@@ -5,6 +5,8 @@ import App from "./App";
 import reportWebVitals from "./reportWebVitals";
 //context
 import { WeatherProvider } from "./context/WeatherDataContext";
+//ant desgin styles
+import "antd/dist/antd.css";
 
 ReactDOM.render(
   <React.StrictMode>
