@@ -36,7 +36,7 @@ function MainMenu() {
                 <b>{`${today.minTemp} ºC`}</b>
               )}
             </h5>
-            <h5>En düşük sıcaklık</h5>
+            <h5>En yüksek sıcaklık</h5>
             <h5>
               {today.maxTemp === undefined ? (
                 <Spin />
@@ -63,7 +63,7 @@ function MainMenu() {
               <h5 className={styles.whiteColor}>
                 {`${today.wind_speed} km/h`}
               </h5>
-              <h5>{`Nem: ${today.humidity}%`}</h5>
+              <h5 className={styles.whiteColor}>{`Nem: ${today.humidity}%`}</h5>
             </>
           )}
         </Col>

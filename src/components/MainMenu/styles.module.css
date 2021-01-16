@@ -60,6 +60,7 @@
   display: flex !important;
   justify-content: flex-end !important;
   align-items: flex-end !important;
+  padding: 0px !important;
 }
 .temp_h1 {
   margin: 0;
