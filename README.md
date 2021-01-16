@@ -4,4 +4,4 @@
 
 [Live Demo - Netlify](https://weather-app-abdullah-aydin.netlify.app/)
 
-![weather-app](images\weather-app.png)
+![weather-app](images/weather-app.png)
