@@ -15,7 +15,7 @@ function SelectMenu() {
     <Select
       defaultValue={value}
       onChange={(value) => setValue(value)}
-      style={{ width: "100%", padding: "0px 30px 30px"}}
+      style={{ width: "200px", maxWidth: "200px", margin: "0px auto 20px" }}
     >
       {cities.map((city) => (
         <Option value={city.name} key={city.id}>

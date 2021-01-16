@@ -2,7 +2,7 @@
 import { useContext } from "react";
 import WeatherDataContext from "../../context/WeatherDataContext";
 // ant design
-import { Row, Col } from "antd";
+import { Row, Col, Spin } from "antd";
 // styles
 import styles from "./styles.module.css";
 //moment
@@ -26,16 +26,23 @@ function SixDaysForecast() {
   return (
     <div className={styles.root}>
       <Row gutter={[8, 8]} className={styles.main}>
+        {forecasts.length === 0 && (
+          <div style={{ display: "flex", margin: "auto" }}>
+            <Spin />
+          </div>
+        )}
         {forecasts.data?.daily.map((day) => (
           <Col span={4} key={day?.dt} className={styles.col}>
-            <div>{moment(day?.dt * 1000).format("dddd")}</div>
+            <h3 className={styles.sixDays_h3}>
+              {moment(day?.dt * 1000).format("dddd")}
+            </h3>
             <img
               src={icons(day?.weather[0].icon)}
               alt=""
               width={75}
               height={75}
             />
-            <p>{`${day.temp.day} ºC`}</p>
+            <p className={styles.sixDays_p}>{`${day.temp.day} ºC`}</p>
           </Col>
         ))}
       </Row>

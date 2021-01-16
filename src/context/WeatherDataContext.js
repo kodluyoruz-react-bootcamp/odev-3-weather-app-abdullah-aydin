@@ -45,7 +45,6 @@ export const WeatherProvider = ({ children }) => {
       )
       .then(
         (res) =>
-          console.log(res) &
           setToday({
             temp: res.data.daily[0].temp.day,
             minTemp: res.data.daily[0].temp.min,
