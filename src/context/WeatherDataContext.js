@@ -25,15 +25,16 @@ export const WeatherProvider = ({ children }) => {
   ]);
   const [forecasts, setForecasts] = useState([]);
   const [value, setValue] = useState("İstanbul");
-  const [lat, setLat] = useState("41.0053"); // initial value; Istanbul
-  const [lon, setLon] = useState("28.9770"); // initial value; Istanbul
+  const [location, setLocation] = useState({
+    lat: "41.0053",
+    lon: "28.9770"
+  }); // initial value; Istanbul
   const units = "metric";
 
   // if there is changed value, set again lon & lat
   useEffect(() => {
     cities.forEach((city) => {
-      city.name === value && setLat(city.latitude);
-      setLon(city.longitude);
+      city.name === value && setLocation({lat:city.latitude, lon: city.longitude});
     });
   }, [value]);
 
@@ -41,7 +42,7 @@ export const WeatherProvider = ({ children }) => {
   useEffect(() => {
     axios
       .get(
-        `${API_BASE}/onecall?lat=${lat}84&lon=${lon}&exclude=minutely&units=${units}&lang=tr&appid=${API_KEY}`
+        `${API_BASE}/onecall?lat=${location.lat}&lon=${location.lon}&exclude=minutely&units=${units}&lang=tr&appid=${API_KEY}`
       )
       .then(
         (res) =>
@@ -58,15 +59,13 @@ export const WeatherProvider = ({ children }) => {
           setForecasts(res)
       )
       .catch((err) => console.err(err));
-  }, [lat, lon]);
+  }, [location]);
 
   const values = {
     today,
     forecasts,
     value,
     setValue,
-    setLat,
-    setLon,
   };
 
   return (
