@@ -32,7 +32,16 @@ function SixDaysForecast() {
           </div>
         )}
         {forecasts.data?.daily.map((day) => (
-          <Col span={4} key={day?.dt} className={styles.col}>
+          <Col
+            span={4}
+            xs={24}
+            sm={12}
+            md={4}
+            lg={4}
+            xl={4}
+            key={day?.dt}
+            className={styles.col}
+          >
             <h3 className={styles.sixDays_h3}>
               {moment(day?.dt * 1000).format("dddd")}
             </h3>
