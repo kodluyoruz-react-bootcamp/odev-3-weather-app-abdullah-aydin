@@ -22,6 +22,7 @@ function SixDaysForecast() {
   const icons = (iconID) => {
     return `${iconBase}/${iconID}@2x.png`;
   };
+  
 
   return (
     <div className={styles.root}>

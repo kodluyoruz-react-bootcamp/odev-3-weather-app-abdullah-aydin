@@ -10,31 +10,19 @@ const API_BASE = "https://api.openweathermap.org/data/2.5";
 const API_KEY = process.env.REACT_APP_APIKEY;
 
 export const WeatherProvider = ({ children }) => {
-  const [today, setToday] = useState([
-    {
-      temp: null,
-      minTemp: null,
-      maxTemp: null,
-      day: null,
-      date: null,
-      wind_speed: null,
-      humidity: null,
-      icon: null,
-      description: null,
-    },
-  ]);
   const [forecasts, setForecasts] = useState([]);
   const [value, setValue] = useState("İstanbul");
   const [location, setLocation] = useState({
     lat: "41.0053",
-    lon: "28.9770"
+    lon: "28.9770",
   }); // initial value; Istanbul
   const units = "metric";
 
   // if there is changed value, set again lon & lat
   useEffect(() => {
     cities.forEach((city) => {
-      city.name === value && setLocation({lat:city.latitude, lon: city.longitude});
+      city.name === value &&
+        setLocation({ lat: city.latitude, lon: city.longitude });
     });
   }, [value]);
 
@@ -44,29 +32,17 @@ export const WeatherProvider = ({ children }) => {
       .get(
         `${API_BASE}/onecall?lat=${location.lat}&lon=${location.lon}&exclude=minutely&units=${units}&lang=tr&appid=${API_KEY}`
       )
-      .then(
-        (res) =>
-          setToday({
-            temp: res.data.daily[0].temp.day,
-            minTemp: res.data.daily[0].temp.min,
-            maxTemp: res.data.daily[0].temp.max,
-            date: res.data.daily[0].dt * 1000,
-            wind_speed: res.data.daily[0].wind_speed,
-            humidity: res.data.daily[0].humidity,
-            icon: res.data.daily[0].weather[0].icon,
-            description: res.data.daily[0].weather[0].description,
-          }) &
-          setForecasts(res)
-      )
+      .then((res) => setForecasts(res))
       .catch((err) => console.err(err));
   }, [location]);
 
   const values = {
-    today,
     forecasts,
     value,
     setValue,
   };
+
+  if (!forecasts) return null;
 
   return (
     <WeatherDataContext.Provider value={values}>

@@ -51,17 +51,6 @@
 .col {
   text-align: center;
 }
-.root:before {
-  content: "";
-  background-image: url("../../assets/bgImage.png") !important;
-  position: absolute;
-  top: -45px;
-  right: -3px;
-  width: 406px;
-  height: 450px;
-  background-repeat: no-repeat;
-  opacity: 0.4;
-}
 
 .sixDays_p{
   margin-bottom: 0;
